@@ -17,12 +17,6 @@ body {
     margin-bottom: 30px;
 }
 
-
-/*.formWrapper form {
-    margin: 8px;
-}
-*/
-
 .well {
     min-height: 20px;
     padding: 19px;
@@ -186,6 +180,7 @@ body {
 .form-style span.required {
     color: red;
 }
+
 input[type="text"].ui-grid-filter-input {
-	min-height: 25px;
+    min-height: 25px;
 }

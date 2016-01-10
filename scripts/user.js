@@ -109,7 +109,7 @@ app.controller("myUserCtrl", function($scope, $http, uiGridConstants) {
         if (confirm("Warning! By doing this action, Your all changes are lost. Still want to add dummy data?") == true) {
             $scope.userList = angular.copy(userdummydata);
             $scope.toggleView(false);
-            alert((userdummydata.length)+" dummy users added");
+            alert((userdummydata.length) + " dummy users added");
         }
     }
 });
