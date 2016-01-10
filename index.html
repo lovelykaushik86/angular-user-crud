@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<script src="scripts/angular.min.js"></script>
+<script src="scripts/ui-grid.js"></script>
+<link rel="stylesheet" href="css/ui-grid.css" type="text/css">
+<link rel="stylesheet" href="css/app.css" type="text/css">
+
+<body ng-app="myUserApp" ng-controller="myUserCtrl">
+    <input type="button" title="Click to add user" value="Add User" ng-click="toggleView(true)" ng-hide="showForm" class="btn btn-success">
+    <input type="button" title="Click to view users list" value="View Users" ng-click="toggleView(false)" ng-hide="showList" class="btn btn-success">
+    <input type="button" title="Import Dummy Users" value="Add dummy Users" ng-click="importDummyUsers()" class="btn btn-success">
+    <div class="formWrapper well" ng-show="showForm">
+        <form id="user_form" name="userForm" novalidate ng-submit="saveUser(user)" class="form-style">
+            <fieldset>
+                <legend><span class="number">1</span> User Info</legend>
+                <label>Username <span class="required">*</span> </label>
+                <input type="text" name="userName" ng-model="user.userName" required>
+                <span style="color:red" ng-show="userForm.userName.$dirty && userForm.userName.$invalid">
+                <span style="color:#ff0000" ng-show="userForm.userName.$error.required">Username is required</span>
+                </span>
+                <br/>
+                <label>Email <span class="required">*</span> </label>
+                <input type="email" name="email" ng-model="user.email" required ng-change="validDuplicate()">
+                <span style="color:red" ng-show="userForm.email.$dirty && userForm.email.$invalid">
+                <span ng-show="userForm.email.$error.required">Email is required.</span>
+                <span ng-show="userForm.email.$error.email">Invalid email address.</span>
+                </span>
+                <br/>
+                <label>First Name </label>
+                <input type="text" name="firstName" ng-model="user.firstName">
+                <br/>
+                <label>Last Name </label>
+                <input type="text" name="lastName" ng-model="user.lastName">
+                <br/>
+                <button type="submit" name="Submit" class="btn btn-success" ng-disabled="(userForm.userName.$dirty && userForm.userName.$invalid || userForm.email.$dirty && userForm.email.$invalid || !user.userName || !user.email) || (!isUserChanged(user))" ng-class>Submit</button>
+                <button type="button" name="cancel" class="btn" ng-click="toggleView(false)">Cancel</button>
+            </fieldset>
+        </form>
+    </div>
+    <div class="gridWrapper well" ng-show="showList">
+        <div class="gridStyle" ui-grid="gridOptions" ui-grid-pagination ui-grid-edit></div>
+    </div>
+    <script src="scripts/data.js"></script>
+    <script src="scripts/user.js"></script>
+</body>
+
+</html>

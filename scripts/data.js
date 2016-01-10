@@ -1,0 +1,60 @@
+/* This is dummy users data for demo purpose */
+var userdummydata = [{
+    "userName": "lovely",
+    "email": "lovelykaushik86@gmail.com",
+    "firstName": "Lovely",
+    "lastName": "Kaushik",
+    "registered": "2016-01-10T15:25:11.339Z"
+}, {
+    "userName": "lovely86",
+    "firstName": "lovely",
+    "lastName": "sharma",
+    "email": "lovelysharma86@gmail.com",
+    "registered": "2016-01-10T15:25:53.428Z"
+}, {
+    "userName": "rohit",
+    "email": "rohit@rohit.com",
+    "registered": "2016-01-10T15:26:03.768Z"
+}, {
+    "userName": "peter",
+    "email": "peter@parker.com",
+    "firstName": "Peter",
+    "lastName": "Parker",
+    "registered": "2016-01-10T15:26:50.429Z"
+}, {
+    "userName": "Rowan",
+    "email": "rowan@xyz.com",
+    "firstName": "Rowan",
+    "lastName": "Johan",
+    "registered": "2016-01-10T15:27:12.203Z"
+}, {
+    "userName": "Amit",
+    "email": "amit.kumar@gnail.ck",
+    "firstName": "Amit",
+    "lastName": "Kumar",
+    "registered": "2016-01-10T15:27:45.149Z"
+}, {
+    "userName": "mohit",
+    "firstName": "mohit",
+    "lastName": "kumar",
+    "email": "mohit@k.com",
+    "registered": "2016-01-10T15:28:17.061Z"
+}, {
+    "userName": "ronit",
+    "firstName": "Ronit",
+    "lastName": "Garg",
+    "email": "ronitgarg@k.com",
+    "registered": "2016-01-10T15:28:59.290Z"
+}, {
+    "userName": "manik",
+    "email": "manik.k@abc.com",
+    "firstName": "Manik",
+    "lastName": "Singh",
+    "registered": "2016-01-10T15:29:28.495Z"
+}, {
+    "userName": "Akash",
+    "email": "akash@sky.com",
+    "firstName": "Akash",
+    "lastName": "Mahta",
+    "registered": "2016-01-10T15:29:48.305Z"
+}]
