@@ -6,3 +6,6 @@ This sample app allows the person to perform following operations:
 - Add a new user
 - Edit existing user
 - Delete a user
+
+# Live preview 
+https://rawgit.com/lovelykaushik86/angular-user-crud/master/
