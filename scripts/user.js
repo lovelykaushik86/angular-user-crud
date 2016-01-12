@@ -54,6 +54,7 @@ app.controller("myUserCtrl", function($scope, $http, uiGridConstants) {
         $scope.showList = !showForm;
         $scope.user = angular.copy(userData);
         $scope.olderUserData = angular.copy(userData);
+        $scope.hashKey = userData.$$hashKey;
         $scope.replaceIndex = index;
     };
     $scope.deleteRow = function(row) {
@@ -64,8 +65,10 @@ app.controller("myUserCtrl", function($scope, $http, uiGridConstants) {
     };
     $scope.saveUser = function(user) {
         if ($scope.userUnique(user)) {
-            if ($scope.replaceIndex != null) {
+            if ($scope.hashKey != null) {
                 $scope.userList.splice($scope.replaceIndex, 1, user);
+                $scope.hashKey = null;
+                $scope.replaceIndex = null;
             } else {
                 user.registered = new Date();
                 $scope.userList.push(user);
@@ -77,7 +80,7 @@ app.controller("myUserCtrl", function($scope, $http, uiGridConstants) {
         var userList = $scope.userList;
         if (userList.length > 0) {
             for (i in userList) {
-                if ($scope.replaceIndex != i) {
+                if ($scope.hashKey != userList[i].$$hashKey) {
                     if (angular.equals(userList[i].userName, user.userName)) {
                         alert('User Name already exist!');
                         return false;
@@ -86,6 +89,9 @@ app.controller("myUserCtrl", function($scope, $http, uiGridConstants) {
                         alert("Email already exist!");
                         return false;
                     }
+                } else {
+                    // get the actual index by matching hash key.
+                    $scope.replaceIndex = i;
                 }
             }
         }
@@ -93,7 +99,6 @@ app.controller("myUserCtrl", function($scope, $http, uiGridConstants) {
     };
     $scope.reset = function() {
         $scope.user = {};
-        $scope.replaceIndex = null;
         $scope.olderUserData = {};
         /*original state and the state of userForm is reset to pristine by calling the $setPristine function on it.*/
         $scope.userForm.$setPristine();
