@@ -90,7 +90,7 @@ app.controller("myUserCtrl", function($scope, $http, uiGridConstants) {
                         return false;
                     }
                 } else {
-                    // get the actual index by matching hash key.
+                    // get the actual index by matching hash key
                     $scope.replaceIndex = i;
                 }
             }
